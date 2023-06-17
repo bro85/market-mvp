@@ -1,0 +1,10 @@
+<div class="site">
+  <div class="site__preloader" *ngIf="showPreloader">
+    <mat-spinner class="site__preloader-spinner"></mat-spinner>
+  </div>
+  <app-site-header *ngIf="!isAdmin"></app-site-header>
+  <main class="site__content">
+    <router-outlet></router-outlet>
+  </main>
+  <app-site-footer *ngIf="!isAdmin"></app-site-footer>
+</div>

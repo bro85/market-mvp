@@ -1,0 +1,109 @@
+<div class="product">
+
+  <div
+    *ngIf="product$ | async as product; else loading"
+    class="site__centered">
+
+    <div
+      *ngIf="isEmptyObject(product); else productWrap"
+      class="product__empty-info">
+      <h1>Товар відсутній. <a routerLink="/catalog" class="site__link"><span>Перейдіть у каталог</span></a> та зробіть свій вибір.</h1>
+    </div>
+
+    <ng-template #productWrap>
+
+      <div class="product__wrap">
+
+        <div class="product__column product__column_slider">
+
+          <div class="product-swiper"
+               *ngIf="!!preview && preview.length > 0; else emptyPreview">
+
+            <div
+              class="product-swiper__preview">
+              <div
+                class="product-swiper__preview-item"
+                *ngFor="let item of preview; index as i"
+                (click)="changeSlide(i)"
+                [ngClass]="{active: item.isActive}">
+                <img
+                  src="{{item.src}}"
+                  alt=""
+                  class="product-swiper__preview-pic">
+              </div><!-- /product-swiper__preview-item -->
+
+            </div><!-- /product-swiper__preview -->
+
+            <swiper
+              #sliderRef
+              [config]="config"
+              (swiper)="onSwiper($event)"
+              (slideChange)="onSlideChange()">
+              <ng-template
+                *ngFor="let image of product.images"
+                swiperSlide>
+                <div class="product-swiper__slide">
+                  <img
+                    src="{{image.original}}"
+                    alt="{{product.title}}"
+                    class="product-swiper__pic">
+                </div>
+              </ng-template>
+            </swiper>
+
+          </div><!-- /product-swiper -->
+
+          <ng-template #emptyPreview>
+            <app-empty-preview></app-empty-preview>
+          </ng-template>
+
+        </div><!-- /product__column -->
+
+        <div class="product__column product__column_txt">
+
+          <h1 class="product__title">{{product.title}}</h1><!-- /product__title -->
+
+          <div class="product__section">
+
+            <div class="product__price">{{product.price | number: '1.2-2' | removeComma }} <span class="product__price-sign">₴</span></div><!-- /product__price -->
+
+            <button *ngIf="!isPopupAddProduct; else popupButton" type="button" class="btn" (click)="addToCart()">Додати у кошик</button>
+
+            <ng-template #popupButton>
+              <button type="button" class="btn" (click)="addToOrder()">Додати у замовлення</button>
+            </ng-template>
+
+          </div><!-- /product__section -->
+
+          <div
+            class="product__section"
+            [innerHTML]="product.info"></div><!-- /product__section -->
+
+          <div
+            *ngIf="!!product.parameters && product.parameters.length > 0"
+            class="product__section">
+
+            <div class="parameters-list">
+              <div *ngFor="let item of product.parameters" class="parameters-list__item">
+                <div class="parameters-list__title"><span>{{item.title}}</span></div>
+                <div class="parameters-list__value">{{item.value}} <span class="parameters-list__unit" *ngIf="item.unit">{{item.unit}}</span></div>
+              </div>
+            </div>
+
+          </div><!-- /product__section -->
+
+        </div><!-- /product__column -->
+
+      </div><!-- /product__wrap -->
+
+    </ng-template>
+
+  </div><!-- /site__centered -->
+
+  <ng-template #loading>
+    <div class="site__centered">
+      <mat-spinner class="loading-type-1"></mat-spinner>
+    </div>
+  </ng-template>
+
+</div><!-- /product -->

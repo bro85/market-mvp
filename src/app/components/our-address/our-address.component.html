@@ -1,0 +1,35 @@
+<section class="our-address">
+  <div class="site__centered">
+    <div class="our-address__wrap">
+      <div class="our-address__side">
+        <h2 class="site__title">Завітайте до нас</h2>
+        <address *ngFor="let item of addressArr"
+                 class="our-address__row">
+          <div class="our-address__coordinates">
+            <a [attr.href]="item.address.link"
+               target="_blank">{{item.address.city}}, {{item.address.street}}</a>
+          </div>
+          <div class="our-address__tel">
+            <span *ngFor="let link of item.phone; first as isFirst">
+              <span *ngIf="!isFirst">; </span>
+              <a [attr.href]="'tel:'+link.href">{{link.text}}</a>
+            </span>
+          </div>
+        </address>
+        <div class="our-address__btn">
+          <a [routerLink]="['/catalog']" class="btn">Перейти до каталогу</a>
+        </div>
+      </div>
+      <div class="our-address__side">
+        <div class="our-address__map">
+          <div class="our-address__dotes">
+            <a *ngFor="let link of addressArr"
+               [attr.href]="link.address.link"
+               [attr.class]="'our-address__dotes-item '+ link.dotes.class"
+               target="_blank"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

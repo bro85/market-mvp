@@ -1,0 +1,105 @@
+@import "variables";
+
+/* ------------ main-categories ------------ */
+.main-categories {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.main-categories__item {
+  width: 100%;
+}
+.main-categories__link {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: var(--font-color-3);
+  font-size: 16px;
+  line-height: 1.2;
+  height: 48px;
+}
+/* ------------ /main-categories ------------ */
+
+/* ------------ brand-card ------------ */
+.brand-card {
+  padding: 0 15px;
+  width: 100%;
+  margin-bottom: 30px;
+}
+/* ------------ /brand-card ------------ */
+
+@media screen and (min-width: $phone-wide) {
+
+  /* ------------ main-categories ------------ */
+  .main-categories__item {
+    width: 50%;
+    border-right: 1px solid var(--border-color);
+  }
+  .main-categories__item:nth-child(2n) {
+    border: none;
+  }
+  .main-categories__link {
+    padding-left: 15px;
+  }
+  .main-categories__item:nth-child(2n-1) .main-categories__link {
+    padding-left: 0;
+  }
+  /* ------------ /main-categories ------------ */
+
+  /* ------------ brand-card ------------ */
+  .brand-card {
+    width: 50%;
+  }
+  /* ------------ /brand-card ------------ */
+
+}
+
+@media screen and (min-width: $tablet) {
+
+  /* ------------ main-categories ------------ */
+  .main-categories__item {
+    width: 33.3333%;
+  }
+  .main-categories__item:nth-child(2n) {
+    border-right: 1px solid var(--border-color);
+  }
+  .main-categories__item:nth-child(2n-1) .main-categories__link {
+    padding-left: 15px;
+  }
+  .main-categories__item:nth-child(3n) {
+    border: none;
+  }
+  .main-categories__item:nth-child(3n-2) .main-categories__link {
+    padding-left: 0;
+  }
+  /* ------------ /main-categories ------------ */
+
+  /* ------------ brand-card ------------ */
+  .brand-card {
+    width: 33.3333%;
+  }
+  /* ------------ /brand-card ------------ */
+
+}
+
+@media screen and (min-width: $desktop) {
+
+  /* ------------ main-categories ------------ */
+  .main-categories__item:nth-child(2n),
+  .main-categories__item {
+    width: 100%;
+    border: none;
+  }
+  .main-categories__item:nth-child(2n-1) .main-categories__link,
+  .main-categories__link {
+    padding: 5px 0;
+    height: auto;
+    line-height: 1.3;
+    transition: color 0.3s ease;
+  }
+  .main-categories__link:hover {
+    color: var(--brand-color-1);
+  }
+  /* ------------ /main-categories ------------ */
+
+}

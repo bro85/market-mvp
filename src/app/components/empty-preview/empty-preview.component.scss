@@ -1,0 +1,13 @@
+@import "variables";
+
+.empty-preview {
+  padding: 15px;
+}
+.empty-preview__img {
+  display: block;
+  width: 100%;
+  max-width: 150px;
+  height: auto;
+  margin: 0 auto;
+  opacity: 0.4;
+}

@@ -1,0 +1,42 @@
+@import "variables";
+
+.about-us {
+  padding: 30px 0;
+  background: var(--block-bg-2);
+}
+
+@media screen and (min-width: $tablet) {
+
+  .about-us {
+    position: relative;
+    direction: rtl;
+  }
+  .about-us:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background-image: url(/assets/img/about-us__bg.jpg);
+    background-position: center;
+    background-size: cover;
+  }
+  .about-us__wrap {
+    width: 50%;
+    direction: ltr;
+    padding-left: 30px;
+  }
+
+}
+
+@media screen and (min-width: $desktop-wide) {
+
+  .about-us {
+    padding: 80px 0;
+  }
+  .about-us__wrap {
+    padding-left: 80px;
+  }
+
+}

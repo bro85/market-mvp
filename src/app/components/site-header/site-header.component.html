@@ -1,0 +1,31 @@
+<header class="site__header">
+  <div class="site__header-contacts">
+    <div class="site__centered">
+      <div class="site__header-side">
+        <app-market-info></app-market-info>
+      </div>
+      <div class="site__header-side">
+        <app-social></app-social>
+      </div>
+    </div>
+  </div>
+  <div class="site__header-main">
+    <div class="site__centered">
+      <app-logo></app-logo>
+      <div class="site__header-menu">
+        <button class="site__header-open" #openBtn (click)="onShowMenu()"><span></span></button>
+        <div class="site__header-wrap" [class.opened] = "isOpenedMenu">
+          <app-header-menu [data]="menuData"></app-header-menu>
+          <app-market-info></app-market-info>
+          <app-social></app-social>
+          <button class="site__header-close" #closeBtn (click)="onCloseMenu()"></button>
+        </div>
+      </div>
+      <div class="site__header-controls">
+        <a [routerLink]="['/checkout']">
+          <app-goods-trolley></app-goods-trolley>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>

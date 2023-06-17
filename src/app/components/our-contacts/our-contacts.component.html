@@ -1,0 +1,20 @@
+<section class="our-contacts">
+  <div class="site__centered">
+    <address *ngFor="let item of addressArr"
+             class="our-contacts__row">
+      <div class="our-contacts__city">{{item.address.city}}</div>
+      <div class="our-contacts__location">
+        {{item.address.street}}<br>{{item.address.city}}<br>{{item.address.region}}
+      </div>
+      <div class="our-contacts__phone">
+        <span *ngFor="let link of item.phone; first as isFirst">
+          <br *ngIf="!isFirst">
+          <a [attr.href]="'tel:'+link.href">{{link.text}}</a>
+        </span>
+      </div>
+      <div class="our-contacts__map">
+        <a [attr.href]="item.address.link" target="_blank">Дивитись на мапі</a>
+      </div>
+    </address>
+  </div>
+</section>

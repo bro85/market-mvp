@@ -1,0 +1,33 @@
+@import "variables";
+
+.social {
+  padding: 10px 20px;
+}
+.social__item {
+  display: inline-block;
+  margin-left: 5px;
+  color: var(--font-color-1);
+  vertical-align: middle;
+}
+.social__item:first-child {
+  margin-left: 0;
+}
+.social__item svg {
+  width: auto;
+  height: 20px;
+  fill: currentColor;
+}
+
+@media screen and (min-width: $desktop) {
+
+  .social {
+    padding: 0;
+  }
+  .social__item {
+    transition: color 0.3s ease;
+  }
+  .social__item:hover {
+    color: var(--brand-color-1);
+  }
+
+}

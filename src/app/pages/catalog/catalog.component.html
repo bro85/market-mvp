@@ -1,0 +1,61 @@
+<div class="catalog">
+
+  <div class="site__centered">
+
+    <h1 class="site__title">Каталог товарів</h1><!-- /site__title -->
+
+    <div class="catalog__cover">
+
+      <div class="catalog__menu">
+
+        <div class="catalog__menu-section">
+
+          <div class="main-categories">
+
+            <ng-container *ngIf="types">
+              <span
+                *ngFor="let type of types"
+                class="main-categories__item">
+                  <a [routerLink]="['/catalog', type.id]" class="main-categories__link">{{type.title}}</a>
+              </span>
+            </ng-container>
+
+          </div><!-- /main-categories -->
+
+        </div><!-- /catalog__menu-section -->
+
+        <h2 class="catalog__menu-title">Ми у соцмережах</h2><!-- /catalog__menu-title -->
+
+        <div class="catalog__menu-section">
+
+          <app-social></app-social>
+
+        </div><!-- /catalog__menu-section -->
+
+      </div><!-- /catalog__menu -->
+
+      <div class="catalog__wrap">
+
+        <div class="catalog__cards">
+
+          <ng-container *ngIf="types; else loading">
+            <div
+              *ngFor="let type of types"
+              [type]="type"
+              class="brand-card"
+              app-brand-card></div>
+          </ng-container>
+
+          <ng-template #loading>
+            <mat-spinner class="loading-type-1"></mat-spinner>
+          </ng-template>
+
+        </div><!-- /catalog__cards -->
+
+      </div><!-- /catalog__wrap -->
+
+    </div><!-- /catalog__cover -->
+
+  </div><!-- /site__centered -->
+
+</div><!-- /catalog -->

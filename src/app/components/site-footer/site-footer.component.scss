@@ -1,0 +1,28 @@
+@import "variables";
+
+.copyright {
+  font-size: 13px;
+}
+.footer-menu {
+  font-size: 13px;
+}
+
+@media screen and (min-width: $tablet) {
+  .copyright {
+    display: flex;
+    align-items: center;
+  }
+  .footer-menu {
+    display: flex;
+    align-items: center;
+  }
+}
+
+@media screen and (min-width: $desktop) {
+  .copyright {
+    font-size: 14px;
+  }
+  .footer-menu {
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,8 @@
+<nav class="menu">
+  <a
+    *ngFor="let item of data"
+    routerLink="{{item.routerLink}}"
+    class="{{item.class}}"
+    routerLinkActive="{{item.routerLinkActive}}"
+    [routerLinkActiveOptions]="{exact: true}">{{item.text}}</a>
+</nav>

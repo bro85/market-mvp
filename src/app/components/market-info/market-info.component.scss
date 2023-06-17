@@ -1,0 +1,52 @@
+@import "variables";
+
+.market-info__item {
+  display: block;
+  padding: 10px 20px;
+  color: var(--font-color-1);
+  font-size: 13px;
+  font-weight: 400;
+}
+.market-info__txt {
+  color: var(--font-color-1);
+}
+.market-info__icon {
+  margin-right: 3px;
+}
+.market-info__icon svg {
+  width: 11px;
+  height: 11px;
+}
+
+@media screen and (min-width: $desktop) {
+
+  .market-info__item {
+    display: inline-block;
+    vertical-align: top;
+    padding: 0;
+    margin-left: 15px;
+  }
+  .market-info__item:first-child {
+    margin-left: 0;
+  }
+  .market-info__icon {
+    margin-right: 2px;
+  }
+  .market-info__txt {
+    letter-spacing: -0.5px;
+  }
+  a.market-info__txt {
+    border-bottom: 1px solid transparent;
+    transition: border-bottom 0.3s ease;
+  }
+  a.market-info__txt:hover {
+    border-bottom: 1px solid currentColor;
+  }
+  .market-info__txt[href^='tel'] {
+    cursor: default;
+  }
+  .market-info__txt[href^='tel']:hover {
+    border-bottom: 1px solid transparent;
+  }
+
+}
